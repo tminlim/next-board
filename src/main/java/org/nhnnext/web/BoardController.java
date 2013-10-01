@@ -10,10 +10,10 @@ public class BoardController {
 	public String form() {
 		return "form";
 	}
-	
-	@RequestMapping(value="/board", method=RequestMethod.POST)
-	public String create(String id, String article) {
-		System.out.println("id : " + id + " article : " + article);
+
+	@RequestMapping(value = "/board", method = RequestMethod.POST)
+	public String create(String title, String contents) {
+		System.out.println("title : " + title + " contents : " + contents);
 		return "redirect:/";
 	}
 }
