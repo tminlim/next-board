@@ -7,10 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/board" method="POST">
-		제목 : <input type="text" name="title"><br>
-		<textarea name="contents"></textarea><br>
-		<input type="submit" value="글쓰기"/>
+	<form action="/board/write_ok" method="POST" enctype="multipart/form-data">
+		<input type="hidden" name="id" value="${id}"> <input
+			type="hidden" name="modify" value="${modify}"> 제목 : <input
+			type="text" name="title" size=40 value="${board.title}"><br />
+
+		<textarea name="contents" rows="10" cols="50"
+			placeholder="글자를 입력해주세요.">${board.contents}</textarea>
+
+		<br />
+		<input type="file" name="file" /><br> <input type="submit"
+			value="보내기">
 	</form>
 </body>
 </html>
