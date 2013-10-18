@@ -13,11 +13,17 @@
 	<ul>
 	<c:forEach var="document" items="${list}">
 		<li>
-		<a href="/board/${document.id}"><img src="/images/${document.filename}" width="100" height="100" alt="image" /></a>
+		<a href="/board/${document.id}">
+		<c:if test="${not empty document.filename}">
+		<img src="/images/${document.filename}" width="100" height="100" alt="image" />
+		</c:if>
+		</a>
 		<p><a href="/board/${document.id}">${document.title}</a></p>
 		<p><a href="/board/${document.id}">${document.contents}</p>
 		</li>
 	</c:forEach>
+	
+	
 	</ul>
 </body>
 </html>

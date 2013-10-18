@@ -19,5 +19,6 @@
 		<input type="file" name="file" /><br> <input type="submit"
 			value="보내기">
 	</form>
+	
 </body>
 </html>
