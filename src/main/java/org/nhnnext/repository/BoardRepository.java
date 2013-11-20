@@ -1,7 +1,5 @@
 package org.nhnnext.repository;
 
-import java.io.Serializable;
-
 import org.nhnnext.web.Board;
 import org.springframework.data.repository.CrudRepository;
 

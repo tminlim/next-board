@@ -5,39 +5,85 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>GGP</title>
+<link rel="stylesheet" media="screen" type="text/css" href="/stylesheets/newWrite.css" />
 </head>
 <body>
-	<a href="/board">리스트</a>
-	<h1>${board.title}</h1>
-	<c:if test="${board.filename != null}">
-		이미지: <img src="/images/${board.filename}" />
-	</c:if>
-	<div>${board.contents}</div>
-	<a href="./${id}/modify">수정</a>
-	<a href="./${id}/delete">삭제</a>
+	<div class = "wrap">
+		<h1 class ="title">
+			<a href="/board">리스트</a>
+		</h1>
+		<h1>${board.title}</h1>
 	
+		<div>${board.contents}</div>
 	
-	<div>
-		<form action="/board/${board.id}/comment" method="POST">
-		<textarea name="contents" rows = "5" cols="50" placeholder ="댓글입력해요 "></textarea>
-		<input type ="submit" name="submit" value="댓글입력"/>
-		</form>
+		<c:if test="${board.filename != null}">
+			이미지: <img src="/images/${board.filename}" width="100" height="100" />
+		</c:if>
+		<div>
+			<a href="./${id}/modify">수정</a>
+			<a href="./${id}/delete">삭제</a>
+		</div>
+		<div>
+			<form action="/board/${board.id}/comment" method="POST">
+				<textarea name="contents" rows="5" cols="50" placeholder="댓글입력해요 "></textarea>
+				<input type="submit" name="submit" value="댓글입력" />
+			</form>
+		</div>
+			
+		<c:forEach items="${board.comments}" var="comment">
+			<div>${comment.contents}</div>
+			<hr />
+		</c:forEach>
 	</div>
-	<c:forEach items="${board.comments}" var="comment">
-	<div>${comment.contents}
-	</div>
-	<hr/>
-	
-	
-	
-	
-	
-	</c:forEach>
-
 
 </body>
 </html>
 
-</body>
-</html>
+
+
+
+<%-- <!-- lists start  -->	
+			<div class = "boards" >
+				<c:forEach var= "board" items="${list}">
+					<div class = "frameList">
+						<div class = "listWrap">
+							<div class = "title"><h2>${board.title}</h2></div>
+					
+							<div class = "detail">${board.contents}</div>
+							<div class = "pics">
+								<c:if test="${board.filename != null}">
+									<a href = "/board/${board.id }"><img src="/images/${board.filename}" width="100" height="100" /></a>
+								</c:if>
+							</div>		
+							<div class = "btns">
+											<a href="./${id}/modify">수정</a>
+											<a href="./${id}/delete">삭제</a>
+								<a href="/board/${board.id}/modify"><input type = "submit" class = "btn" value= "수정" style = "border-style:none;"></a>
+								<a href="/board/${board.id}/delete"><input type = "submit" class = "btn02" value= "삭제" style = "border-style:none;"></a>
+							</div>
+						</div>
+						<div class = "listWrap02">
+							<div class = "comments">
+								<div class = "commentBox">
+									<form action="/board/${board.id}/comment" method="POST">
+										<textarea name="contents" placeholder="댓글입력해요 " class = "commentarea"></textarea>
+										<input type="submit" name="submit" value="댓글" class = "btn"/>
+									</form>
+								</div>
+								<div class = "countComment">
+								 	<span></span>
+								</div>
+								<a href = # class = "showComment">Show Comment</a>
+								<div class = "commentList">
+									<c:forEach items="${board.comments}" var="comment">
+										<div class ="comCont">${comment.contents}</div>
+										<hr />
+									</c:forEach>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+<!-- lists end -->	 --%>

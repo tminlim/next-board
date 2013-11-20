@@ -30,6 +30,8 @@ public class Board {
 	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER)
     private List<Comment> comments;
 	
+//	@ManyToOne
+
 	public void setFilename(String filename) {
 		this.filename = filename;
 	}
@@ -60,6 +62,9 @@ public class Board {
 		this.contents = contents;
 	}
 
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 	public List<Comment> getComments() {
 		return comments;
 	}
