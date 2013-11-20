@@ -85,7 +85,7 @@ window.onload=init;
 				<c:forEach var= "board" items="${list}">
 					<div class = "frameList">
 						<div class = "listWrap">
-							<div class = "title"><h2>${board.title}</h2></div>
+							<div class = "title" style = ""margin-bottom:8px;"><a href = "/board/${board.id }"><h2 style ="background: #d8d8d8; margin-bottom: 5px;text-align: center;">${board.title}</h2></a></div>
 					
 							<div class = "detail">${board.contents}</div>
 							<div class = "pics">

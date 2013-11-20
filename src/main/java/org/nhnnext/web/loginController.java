@@ -18,6 +18,13 @@ public class loginController {
 	public String form() {
 		return "login";
 	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("userId");
+		System.out.println("logout started...");
+		return "redirect:/";
+	}
 
 	@RequestMapping("/signup")
 	public String signup() {

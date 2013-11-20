@@ -11,7 +11,7 @@
 	<div class = "sub_wrap">
 		<c:choose>
 			<c:when test="${not empty sessionScope.userId}">
-			<h1 class ="title"><a href = "/user.logout">logout</a></h1>
+			<h1 class ="title"><a href = "/user/logout">logout</a></h1>
 			</c:when>
 			<c:otherwise>
 			<h1 class ="title"><a href = "/user/login">login</a></h1> 
