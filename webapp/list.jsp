@@ -48,7 +48,7 @@ function switchComment(e){
 
 
 function addComments(e){
-	e.preventDefault();
+	//e.preventDefault();
 	
 }
 window.onload=init;
@@ -93,7 +93,7 @@ window.onload=init;
 									<a href = "/board/${board.id }"><img src="/images/${board.filename}" width="100" height="100" /></a>
 								</c:if>
 							</div>		
-<%-- 							<div class = "btns">
+<%-- 						<div class = "btns">
 								<a href="/board/${board.id}/modify"><input type = "submit" class = "btn" value= "수정" style = "border-style:none;"></a>
 								<a href="/board/${board.id}/delete"><input type = "submit" class = "btn02" value= "삭제" style = "border-style:none;"></a>
 							</div> --%>
