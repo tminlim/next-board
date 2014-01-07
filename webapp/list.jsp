@@ -57,8 +57,19 @@
 	
 	function writeComments(e) {
 		e.preventDefault();
-		
-        var eleForm = e.currentTarget.form;
+		var submitButton = e.currentTarget;
+		var commentArea = submitButton.parentElement.querySelector('textarea');
+		var comment = commentArea.value;
+		var commentBox = submitButton.parentElement.parentElement;
+		var countComment = commentBox.nextElementSibling;
+		var commentList = countComment.nextElementSibling.nextElementSibling;
+		// 댓글 수 1 더함
+		var currentCount = parseInt(countComment.innerText);
+		countComment.innerHTML = '<span>' + (currentCount + 1) + '</span>';
+		// 댓글 목록에 내 댓글 추가
+		commentList.innerHTML += '<div class="comCont">' + comment + '</div>\n<hr>';
+		// 서버에 전송
+        var eleForm = submitButton.form;
         var oFormData = new FormData(eleForm);
         
         var sID = eleForm[0].value;
@@ -68,7 +79,8 @@
         request.open("POST", url, true);
         
         request.send(oFormData);
-   
+        // 댓글창 청
+        commentArea.value = '';
 	}
 
 	function init() {
