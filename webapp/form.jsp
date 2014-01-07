@@ -15,9 +15,9 @@
 		<div id=formarea>
 			<form action="/board/write" method="POST"
 				enctype="multipart/form-data">
-				<input type="hidden" name="id" value="${id}"><inputs
-					type="hidden" name="modify" value="${modify}"><input
-					type="text" name="title" placeholder="제목" value="${board.title}"><br />
+				<input type="hidden" name="id" value="${id}">
+				<input type="hidden" name="modify" value="${modify}">
+				<input type="text" name="title" placeholder="제목" value="${board.title}"><br />
 				<textarea name="contents" placeholder="글자를 입력해주세요.">${board.contents}</textarea>
 					<div id="file_upload">
 					<input type = "file" id="upload"  onchange ="getElementById()"  name="file_upload" class = "btn_upload"></div>
